@@ -27,22 +27,21 @@ import sample.mybatis.web.domain.City;
  * Tests for {@link CityMapper}.
  *
  * @author wonwoo
- *
  * @since 1.2.1
  */
 @MybatisTest
 class CityMapperTest {
 
-  @Autowired
-  private CityMapper cityMapper;
+    @Autowired
+    private CityMapper cityMapper;
 
-  @Test
-  void findByStateTest() {
-    City city = cityMapper.findByState("CA");
-    assertThat(city.getId()).isEqualTo(1);
-    assertThat(city.getName()).isEqualTo("San Francisco");
-    assertThat(city.getState()).isEqualTo("CA");
-    assertThat(city.getCountry()).isEqualTo("US");
-  }
+    @Test
+    void findByStateTest() {
+        City city = cityMapper.findByState("CA");
+        assertThat(city.getId()).isEqualTo(1);
+        assertThat(city.getName()).isEqualTo("San Francisco");
+        assertThat(city.getState()).isEqualTo("CA");
+        assertThat(city.getCountry()).isEqualTo("US");
+    }
 
 }

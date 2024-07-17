@@ -14,7 +14,9 @@
 --    limitations under the License.
 --
 
-drop table if exists city;
+DROP TABLE IF EXISTS CITY;
+CREATE TABLE CITY (ID INT PRIMARY KEY AUTO_INCREMENT, NAME VARCHAR, STATE VARCHAR, COUNTRY VARCHAR);
 
-create table city (id int primary key auto_increment, name varchar, state varchar, country varchar);
+DROP TABLE IF EXISTS DISTRICT;
+CREATE TABLE DISTRICT (ID INT PRIMARY KEY AUTO_INCREMENT, CITY VARCHAR, STATE VARCHAR, COUNTRY VARCHAR, DISTRICT VARCHAR, INCOME NUMERIC);
 

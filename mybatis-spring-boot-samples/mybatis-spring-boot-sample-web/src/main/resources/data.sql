@@ -14,4 +14,7 @@
 --    limitations under the License.
 --
 
-insert into city (name, state, country) values ('San Francisco', 'CA', 'US');
+INSERT INTO CITY (NAME, STATE, COUNTRY) VALUES ('San Francisco', 'CA', 'US');
+
+INSERT INTO DISTRICT (STATE, COUNTRY, CITY, DISTRICT, INCOME) VALUES ('CA', 'US', 'San Francisco', 'Village', 10000);
+INSERT INTO DISTRICT (STATE, COUNTRY, CITY, DISTRICT, INCOME) VALUES ('CA', 'US', 'San Francisco', 'Town', 20000);
