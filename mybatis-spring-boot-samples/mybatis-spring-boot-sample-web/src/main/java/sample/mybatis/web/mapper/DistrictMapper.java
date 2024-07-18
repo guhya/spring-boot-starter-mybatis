@@ -27,25 +27,50 @@ import java.util.List;
 @Mapper
 public interface DistrictMapper {
 
-    @Select("SELECT ID, DISTRICT, CITY, STATE, COUNTRY, INCOME FROM DISTRICT WHERE ID = #{id}")
+    @Select("""
+            SELECT 
+                ID, DISTRICT, CITY, STATE, COUNTRY, INCOME 
+            FROM DISTRICT 
+            WHERE ID = #{id}
+            """)
     District findById(@Param("id") long id);
 
-    @Select("SELECT ID, DISTRICT, CITY, STATE, COUNTRY, INCOME FROM DISTRICT WHERE CITY = #{city}")
+    @Select("""
+            SELECT 
+                ID, DISTRICT, CITY, STATE, COUNTRY, INCOME 
+            FROM DISTRICT 
+            WHERE CITY = #{city}
+            """)
     List<District> findByCity(@Param("city") String city);
 
-    @Select("SELECT ID, DISTRICT, CITY, STATE, COUNTRY, INCOME FROM DISTRICT")
+    @Select("""
+            SELECT 
+                ID, DISTRICT, CITY, STATE, COUNTRY, INCOME  
+            FROM DISTRICT
+            """)
     List<District> findAll();
 
-    @Insert("INSERT INTO DISTRICT(DISTRICT, CITY, STATE, COUNTRY, INCOME) " +
-            "VALUES (#{district.district}, #{district.city}, #{district.state}, #{district.country}, #{district.income})")
+    @Select("""
+            SELECT 
+                ID, DISTRICT, CITY, STATE, COUNTRY, INCOME 
+            FROM DISTRICT
+            """)
+    List<District> findAllPaged();
+
+    @Insert("""
+            INSERT INTO DISTRICT(DISTRICT, CITY, STATE, COUNTRY, INCOME) 
+            VALUES (#{district.district}, #{district.city}, #{district.state}, #{district.country}, #{district.income})
+            """)
     void insert(@Param("district") District district);
 
-    @Update("UPDATE DISTRICT " +
-            "   SET DISTRICT = #{district.district}" +
-            "   , CITY = #{district.city}" +
-            "   , STATE = #{district.state}" +
-            "   , COUNTRY = #{district.country} " +
-            "   , INCOME = #{district.income} " +
-            "WHERE ID = #{district.id}")
+    @Update("""
+            UPDATE DISTRICT 
+                SET DISTRICT    = #{district.district}
+                , CITY          = #{district.city}
+                , STATE         = #{district.state}
+                , COUNTRY       = #{district.country} 
+                , INCOME        = #{district.income} 
+            WHERE ID = #{district.id}
+            """)
     void update(@Param("district") District district);
 }
